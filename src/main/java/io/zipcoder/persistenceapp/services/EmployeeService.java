@@ -19,7 +19,7 @@ public class EmployeeService {
         return empRepo.findAll();
     }
 
-    public Employee findEmpById(Integer id) {
+    public Employee findEmpById(Long id) {
         return empRepo.findById(id).get();
     }
 
@@ -27,7 +27,7 @@ public class EmployeeService {
         return empRepo.save(emp);
     }
 
-    public Employee updateEmp (Integer id, Employee emp) {
+    public Employee updateEmp (Long id, Employee emp) {
 //        Baker originalBaker = repository.findById(id).get();
 //        originalBaker.setName(newBakerData.getName());
 //        originalBaker.setEmployeeId(newBakerData.getEmployeeId());
@@ -35,20 +35,23 @@ public class EmployeeService {
         return empRepo.save(emp);
     }
 
-    public Boolean delete(Integer id) {
+    public Boolean delete(Long id) {
         empRepo.deleteById(id);
         return true;
     }
 
-
-
-
-
-    public Employee setManager (Integer id, String manager){
-        Employee originalEmp  = empRepo.findById(id).get();
+    public Employee setManager (Long id, String manager){
+        Employee originalEmp = seeIfPresent(id);
         originalEmp.setManager(manager);
-        Integer newDept =
+        //Integer newDept = manager.
+        return null;
+    }
 
+    public Employee seeIfPresent (Long id) {
+        if (empRepo.findById(id).isPresent()){
+            return empRepo.findById(id).get();
+        }
+        return null;
     }
 
 

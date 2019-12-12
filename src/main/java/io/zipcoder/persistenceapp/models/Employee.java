@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer employeeNum;
+    Long employeeNum;
     String firstName;
     String lastName;
     String title;
@@ -23,7 +23,7 @@ public class Employee {
 
     public Employee () {}
 
-    public Employee(Integer employeeNum, String firstName, String lastName, String title, String phoneNum, String email, LocalDate dateOfHire, String manager, Integer deptNum) {
+    public Employee(Long employeeNum, String firstName, String lastName, String title, String phoneNum, String email, LocalDate dateOfHire, String manager, Integer deptNum) {
         this.employeeNum = employeeNum;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -46,7 +46,7 @@ public class Employee {
         this.deptNum = deptNum;
     }
 
-    public Integer getEmployeeNum() {
+    public Long getEmployeeNum() {
         return employeeNum;
     }
 
