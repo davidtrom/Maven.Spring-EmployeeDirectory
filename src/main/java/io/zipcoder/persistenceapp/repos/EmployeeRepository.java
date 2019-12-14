@@ -8,6 +8,17 @@ import org.springframework.stereotype.Repository;
 public interface EmployeeRepository extends CrudRepository <Employee, Long> {
 
     //verb subject predicate
-    // p
     //public void deleteEmployeeBy
+
+    Iterable<Employee> findAllByManagerIsNull ();
+
+    Iterable<Employee> findAllByManager(Long managerId);
+
+   void deleteEmployeesByManagerAndManager (Long managerId);
+
+   Boolean deleteAllByEmployeeNum(Iterable<Long> empIds);
+
+   Iterable<Employee> findAllByManagerNotNull (Long managerId);
+
+
 }
