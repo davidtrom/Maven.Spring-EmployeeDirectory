@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class EmployeeService {
 
@@ -61,7 +63,8 @@ public class EmployeeService {
     }
 
     public Boolean removeEmpsByManager (Long managerId){
-        ArrayList<Employee> empRepo.findAllByManagerNotNull(managerId)
+        Iterable<Employee> nonNull = empRepo.findAllByManagerNotNull(managerId);
+        return false;
     }
 
     public Employee seeIfPresent(Long id) {
